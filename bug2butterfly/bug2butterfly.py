@@ -7,22 +7,38 @@
     Python Version: 2.7.10
 """
 from __future__ import print_function
-
-__author__ = "pengwk"
-__copyright__ = "Copyright 2016, pengwk"
-__credits__ = [""]
-__license__ = "Private"
-__version__ = "0.1"
-__maintainer__ = "pengwk"
-__email__ = "pengwk2@gmail.com"
-__status__ = "BraveHeart"
-
 import sys
-
 import logging
 import traceback
 
-logging.basicConfig(filename="bug2butterfly.txt", level=logging.DEBUG)
+_format = """
+## %(exc_type)s
+
+%(asctime)s - %(name)s - %(levelname)s - %(message)s
+
+```
+%(traceback)s
+```
+"""
+
+logging.basicConfig(filename="butterflies.md",
+                    format=_format,
+                    datefmt='%Y/%m/%d %I:%M:%S %p',
+                    level=logging.WARNING)
+
+
+def butterfly_hook(exc_type, exc_value, exc_traceback):
+    exc_info = (exc_type, exc_value, exc_traceback)
+    d = {}
+    d['exc_type'] = exc_type
+    d['traceback'] = "".join(traceback.format_exception(*exc_info))
+    logging.error("",
+                  extra=d,
+                  )
+    sys.__excepthook__(exc_type, exc_value, exc_traceback)
+
+
+sys.excepthook = butterfly_hook
 
 
 def butterfly(func):
@@ -46,7 +62,7 @@ def butterfly(func):
     return wrapper
 
 
-def test():
+def decorator_test():
     @butterfly
     def my_fault(a, b):
         print(a / b)
@@ -54,9 +70,13 @@ def test():
     my_fault(2, 0)
 
 
+def hook_test():
+    print(1 / 0)
+
+
 def main():
     return None
 
 
 if __name__ == "__main__":
-    test()
+    hook_test()

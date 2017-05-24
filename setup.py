@@ -6,7 +6,7 @@ def readme():
         return f.read()
 
 setup(name='bug2butterfly',
-      version='0.1',
+      version='0.2',
       description='A notebook to document every bug you write!',
       long_description=readme(),
       classifiers=[

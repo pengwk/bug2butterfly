@@ -12,7 +12,7 @@ import logging
 import traceback
 
 _format = """
-## %(exc_type)s
+## `%(exc_type)s`
 
 %(asctime)s - %(name)s - %(levelname)s - %(message)s
 
@@ -39,35 +39,6 @@ def butterfly_hook(exc_type, exc_value, exc_traceback):
 
 
 sys.excepthook = butterfly_hook
-
-
-def butterfly(func):
-    from functools import wraps
-
-    @wraps(func)
-    def wrapper(*arg, **kwargs):
-        def bug(*arg, **kwargs):
-            try:
-                func(*arg, **kwargs)
-            except:
-                # 记录错误
-                _type, _value, _traceback = sys.exc_info()
-                logging.error(sys.exc_info())
-                logging.error(traceback.extract_tb(_traceback))
-                logging.error(traceback.format_exc())
-                raise
-
-        return bug(*arg, **kwargs)
-
-    return wrapper
-
-
-def decorator_test():
-    @butterfly
-    def my_fault(a, b):
-        print(a / b)
-
-    my_fault(2, 0)
 
 
 def hook_test():

@@ -10,7 +10,8 @@ install:
   - pip install pytest-cov
 
 # command to run tests
-script: python -m pytest --cov
+script:
+  - python -m pytest --cov
+  - CODECLIMATE_REPO_TOKEN=243d70ef2e24b4344d6ede6231230e3f001bed84f1e9bc0bdcfbc99d00ddb43d
+  - codeclimate-test-reporter --file .coverage
 
-after_sucess:
-  - CODECLIMATE_REPO_TOKEN=243d70ef2e24b4344d6ede6231230e3f001bed84f1e9bc0bdcfbc99d00ddb43d codeclimate-test-reporter

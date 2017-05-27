@@ -13,7 +13,26 @@
 .. image:: https://travis-ci.org/pengwk/bug2butterfly.svg?branch=master
     :target: https://travis-ci.org/pengwk/bug2butterfly
 
-为新手准备，记录学习中的每一个bug！
+为新手准备，记录出现的每一个异常！
+
+项目目录下会生成一个`butterflies.md`文件，内容像下面这样：
+
+`<type 'exceptions.ZeroDivisionError'>`
+=======================================
+
+2017/05/24 08:07:56 PM - root - ERROR
+
+
+
+.. code-block:: python
+
+    Traceback (most recent call last):
+        File "E:/pengwk_project/bug2butterfly/bug2butterfly/bug2butterfly.py", line 84, in <module>
+            hook_test()
+        File "E:/pengwk_project/bug2butterfly/bug2butterfly/bug2butterfly.py", line 76, in hook_test
+            print(1 / 0)
+    ZeroDivisionError: integer division or modulo by zero
+
 
 安装 Installation
 ----------------

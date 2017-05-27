@@ -36,11 +36,4 @@ def butterfly_hook(exc_type, exc_value, exc_traceback):
 sys.excepthook = butterfly_hook
 
 
-def test_butterfly():
-    assert print(1 / 0)
-
-
-def main():
-    return None
-
 

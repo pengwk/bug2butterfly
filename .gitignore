@@ -12,3 +12,6 @@
 
 # log file
 *.txt
+
+# code coverage report
+.coverage

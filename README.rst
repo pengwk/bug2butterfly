@@ -1,8 +1,6 @@
 成蝶 bug2butterfly
 ---------------------
 
-为新手准备，记录学习中的每一个bug！
-
 .. image:: https://img.shields.io/pypi/v/bug2butterfly.svg
     :target: https://pypi.python.org/pypi/bug2butterfly
 
@@ -11,6 +9,8 @@
 
 .. image:: https://img.shields.io/pypi/pyversions/bug2butterfly.svg
     :target: https://pypi.python.org/pypi/bug2butterfly
+
+为新手准备，记录学习中的每一个bug！
 
 安装 Installation
 ----------------
@@ -27,6 +27,7 @@ To install bug2butterfly, simply:
 在需要的程序中导入即可
 
 .. code-block:: python
+
     import bug2butterfly
 
 

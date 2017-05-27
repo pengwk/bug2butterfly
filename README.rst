@@ -13,8 +13,12 @@
 .. image:: https://travis-ci.org/pengwk/bug2butterfly.svg?branch=master
     :target: https://travis-ci.org/pengwk/bug2butterfly
 
-.. image:: https://travis-ci.org/pengwk/bug2butterfly.svg?branch=master
-    :target: https://travis-ci.org/pengwk/bug2butterfly
+.. image:: https://codeclimate.com/github/pengwk/bug2butterfly/badges/gpa.svg
+    :target: https://codeclimate.com/github/pengwk/bug2butterfly
+
+.. image:: https://codeclimate.com/github/pengwk/bug2butterfly/badges/coverage.svg
+    :target: https://codeclimate.com/github/pengwk/bug2butterfly
+
 
 为新手准备，记录出现的每一个异常！
 

@@ -10,6 +10,9 @@
 .. image:: https://img.shields.io/pypi/pyversions/bug2butterfly.svg
     :target: https://pypi.python.org/pypi/bug2butterfly
 
+.. image:: https://travis-ci.org/pengwk/bug2butterfly.svg?branch=master
+    :target: https://travis-ci.org/pengwk/bug2butterfly
+
 为新手准备，记录学习中的每一个bug！
 
 安装 Installation

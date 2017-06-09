@@ -3,37 +3,30 @@
 
 from __future__ import print_function
 import sys
-import logging
 import traceback
 
+# issue _my_fault is connected with record
 _format = """
-## `%(exc_type)s`
+## `{exc_type}`
 
 %(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 ```
-%(traceback)s
+{traceback}
 ```
 """
 
-logging.basicConfig(filename="butterflies.md",
-                    format=_format,
-                    datefmt='%Y/%m/%d %I:%M:%S %p',
-                    level=logging.WARNING)
-
 
 def butterfly_hook(exc_type, exc_value, exc_traceback):
-    exc_info = (exc_type, exc_value, exc_traceback)
-    d = {'exc_type': exc_type,
-         'traceback': "".join(traceback.format_exception(*exc_info))
-         }
-    logging.error("",
-                  extra=d,
-                  )
+
+    # exc_info = (_test, exc_value, exc_traceback)
+
+    traceback_content = ''.join(traceback.format_exception(exc_type, exc_value, exc_traceback))
+    except_item = _format.format(exc_type=exc_type, traceback=traceback_content)
+    with open('butterfly.md', 'a') as f:
+        f.write(except_item)
+
     sys.__excepthook__(exc_type, exc_value, exc_traceback)
 
 
 sys.excepthook = butterfly_hook
-
-
-
